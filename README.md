@@ -1,3 +1,7 @@
+# Declaration of Authorship
+The report is an assignment of my course in RMIT, articulated by 3 collaborators.
+_**Xuan Truong:** 
+
 # Variable Table
 
 ## Variable Description Table
@@ -22,28 +26,4 @@
 | `registered` | Other | Integer | Count of registered users | – | No |
 | `cnt` | Target | Integer | Count of total rental bikes including both casual and registered | – | No |
 
-# Data pre-processing steps
 
--   View data - check the data manually\
--   Check duplication - 0 duplication\
--   Check missing value - 0 missing value\
--   Check variable types\
--   Decide which variables should be removed\
--   Format the number of decimal places (prefer 2 or 3)\
--   Convert categorical variables to factor variables\
--   Consider to create new groups for categorical observations such as grouping months into quarters\
--   Encode dummies variables\
--   Descriptive statistics (min, max, median, quartiles, unique values)\
--   Check data distribution by histogram, boxplot, scatter plot\
--   Check the skewness, outliers
-
-# Handle outliers (for casual and register variables)
-
--   Check outliers by histogram, scatter plot, boxplot\
--   Firstly, check the erroneous data such as "13th month", check the percentage of erroneous values\
--   Remove if the size is too small (\<1-3%), otherwise impute them by winzorization, kNN, forward-filling, back-filling\
--   Prefer to use scatter plot to break the data grid into 4 groups, try to understand the odds\
--   Then use boxplot to understand outlier distribution as the whole data\
--   Then plot the boxplot by each category. For example, plot the boxplots of each month and look at the outliers.\
--   Extract outliers to analyze the profile of each\
--   Doing this will give more holistic view of the data, help understand why the outlier happen and make decision to keep or remove
