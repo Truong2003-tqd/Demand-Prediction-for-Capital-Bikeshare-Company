@@ -1,9 +1,12 @@
 # Declaration of Authorship
-The report is an assignment of my course in RMIT, articulated by 3 collaborators.
-_**Xuan Truong:** 
+The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker.
 
+1. **Xuan Truong (Project Leader):** In this project, I was reponsible for writing codes from **processing, wrangling and visualizing data, building predictive model, researching and ideating business scenarios**. In terms of report writing, I wrote the rationales for **data processing, visualizations, variables selection for predictive model, model explanations and outlines for scenarios and recommendations**.
+
+2. **Minh and Chau:** They are responsible for articulating business background, scenarios and recommendations for the current problems.
+
+#
 # Variable Table
-
 ## Variable Description Table
 
 | Variable Name | Role | Type | Description | Units | Missing Values |
