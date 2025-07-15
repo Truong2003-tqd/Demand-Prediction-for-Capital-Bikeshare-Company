@@ -1,5 +1,5 @@
 # Declaration of Authorship
-The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker. Please click this link to download the full report [Full Report](Predictive Report for Capital Bikeshare Data.docx)
+The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker. Please click this link to download the full report [Full Report](https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/7e16d3db9a47d66ed521d650da39b345a37c7379/Predictive%20Report%20for%20Capital%20Bikeshare%20Data.docx)
 
 1. **Xuan Truong (Project Leader):** In this project, I was reponsible for writing codes from **processing, wrangling and visualizing data, building predictive model, researching and ideating business scenarios**. In terms of report writing, I wrote the rationales for **data processing, visualizations, variables selection for predictive model, model explanations and outlines for scenarios and recommendations**.
 
