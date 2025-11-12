@@ -1,18 +1,11 @@
 # Declaration of Authorship
-The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker. Please click this link to download the full report [Full Report][...]
+The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker.
 
 1. **Xuan Truong (Project Leader):** In this project, I was reponsible for writing codes from **processing, wrangling and visualizing data, building predictive model, researching and ideating business solutions**.
 
 2. **Minh and Chau:** They are responsible for articulating business background, scenarios and recommendations for the current problems.
 
-## Version History
-- **Version 12 — 2025-11-12:** Added and refined the section "Distinctive Demand Across Time of Day" contrasting leisure-centric casual usage with commuter-pattern registered usage, with highlighted modeling implications.
-- **Version 13 — 2025-11-12:** Added and refined the section "Weekend and Holiday – Secondary Demand Driver" describing higher casual medians and flattened registered commute peaks with a midday lift, including peak-timing effects and modeling notes.
-- **Version 14 — 2025-11-12:** Added and refined "Seasonal Demand of Each User" detailing seasonal distribution differences, winter suppression mechanisms, and modeling/operational implications.
-
-#
-# Variable Table
-## Variable Description Table
+# Data Dictionary
 
 | Variable Name | Role | Type | Description | Units | Missing Values |
 |----------|----------|----------|------------------------|----------|----------|
