@@ -107,3 +107,11 @@ Overall, the divergence between leisure-oriented and commute-oriented temporal p
 **Registered usage is more balanced across seasons.** The highest share occurs in **Summer (31.25%)**, followed by **Spring (26.76%)** and **Fall (26.64%)**, with **Winter** lowest—consistent with reduced ride comfort and shorter daylight.
 
 > Shorter **daylight hours** and **lower temperatures** in Winter suppress cycling—most visibly for leisure behaviors—driving the lowest seasonal proportions for both segments. These findings underscore the importance of including **seasonality** in demand models and calibrating **capacity by season and segment.**
+
+## Weather Conditions, Humidity and Temperature – Demand Booster
+
+**While humidity co-moves with adverse weather, temperature is a weaker discriminator across most weather states.** Except on **heavy-rain days**, the **temperature median and IQR are closely similar** across other weather conditions, indicating that temperature alone is **less informative than humidity** for explaining short‑run demand variation.
+
+> **Implications for prediction and operations.**
+> - Prioritize **humidity** (and its interactions with weather condition) as a high‑signal feature in demand models.
+> - For logistics, expect **demand headwinds under high humidity and adverse conditions**; bias capacity toward **clear/dry periods** and be conservative on stock/redistribution plans when **humidity is elevated**, even if temperatures are moderate.
