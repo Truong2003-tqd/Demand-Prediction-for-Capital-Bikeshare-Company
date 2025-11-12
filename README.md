@@ -115,3 +115,137 @@ Overall, the divergence between leisure-oriented and commute-oriented temporal p
 > **Implications for prediction and operations.**
 > - Prioritize **humidity** (and its interactions with weather condition) as a high‑signal feature in demand models.
 > - For logistics, expect **demand headwinds under high humidity and adverse conditions**; bias capacity toward **clear/dry periods** and be conservative on stock/redistribution plans when **humidity is elevated**, even if temperatures are moderate.
+
+# Customer Persona
+
+<!-- 3-column HTML table as requested -->
+<table>
+  <thead>
+    <tr>
+      <th>Segment</th>
+      <th>Primary purpose & behavior</th>
+      <th>Likely destinations & trip patterns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Casual users</strong></td>
+      <td>
+        Tourism and sightseeing; leisure‑oriented and schedule‑flexible.<br/>
+        Usage concentrates on weekends/holidays and in the midday–afternoon window.
+      </td>
+      <td>
+        Public parks, tourist landmarks, waterfronts, monuments, museums, and event venues.<br/>
+        Short, scenic loops and point‑to‑point leisure trips.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Registered users</strong></td>
+      <td>
+        Structured, routine travel (work/education).<br/>
+        Strong weekday commute peaks (morning and late afternoon); declines on weekends/holidays.
+      </td>
+      <td>
+        Residential areas ↔ office districts, major transit hubs, and university zones.<br/>
+        Repeated origin–destination pairs aligned to daily routines.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+# Predictive Model
+
+Recognizing the distinct behaviors of **Casual** and **Registered** users, we estimate separate prediction models for each segment.
+
+## Feature Selection
+To control multicollinearity, we applied **Variance Inflation Factors (VIF)** and removed collinear terms. We then used **backward elimination** (dropping features and interactions iteratively) to obtain the simplest specification that delivers the **highest accuracy** with strong statistical support.
+
+## Model
+See the Word document for complete coefficient tables and significance tests.
+
+**Casual model**
+
+`ln(casual + 1) = 0.672 − 0.127·EarlyMorning + 1.471·MorningPeak + 2.108·Midday + 2.056·AfternoonPeak + 1.379·Evening − 0.676·WorkingDay − 0.024·Mist_Cloudy − 0.561·LightSnow_Rain − 0.272·HeavySnow_Rain + 0.495·Spring + 0.234·Summer + 0.441·Fall + 0.457·Holiday − 0.814·Humidity + 0.053·FeltTemperature`
+
+**Registered model**
+
+`ln(registered + 1) = 2.079 + 1.603·EarlyMorning + 3.389·MorningPeak + 2.501·Midday + 3.441·AfternoonPeak + 2.473·Evening + 1.169·Weekend − 0.008·Mist_Cloudy − 0.432·LightSnow_Rain + 0.116·HeavySnow_Rain + 0.206·Spring + 0.152·Summer + 0.476·Fall − 0.319·Holiday − 0.615·Humidity + 0.027·FeltTemperature − 2.731·(EarlyMorning×Weekend) − 2.684·(MorningPeak×Weekend) − 0.783·(Midday×Weekend) − 1.875·(AfternoonPeak×Weekend) − 1.482·(Evening×Weekend)`
+
+Notes
+- Weather-state encodings follow the analysis (e.g., Mist_Cloudy, LightSnow_Rain).
+- Log-transforming targets stabilizes variance and improves fit.
+
+## Model Evaluation
+- Adjusted R-squared: **0.769 (Casual)** and **0.799 (Registered)**, indicating **high reliability** for predicting bike usage across contexts.
+- The interaction **hr_cat × weekend** increases Registered-model accuracy by **+9.2 percentage points**, versus **+1.8 pp** for the Casual model—highlighting the stronger weekend timing effect for commuters.
+
+For detailed interpretation and diagnostic plots, refer to the accompanying Word document.
+
+# Scenario Development
+
+## Operational Challenges on Weekday vs. Weekend Demand
+Assumptions: Fix season to <strong>Summer</strong>, non‑holiday; <strong>humidity</strong> and <strong>felt temperature</strong> at their Summer means.
+
+- Weekend midday and afternoon peaks generate the highest usage. Midday is the busiest period, averaging about <strong>51 casual</strong> and <strong>237 registered</strong> trips—roughly <strong>2×</strong> weekday levels (Scenario 5).  
+  Although routine commuting declines for registered users on weekends, they still ride for non‑work purposes (shopping, leisure), shifting activity toward midday.
+
+## Operational Challenges Across Seasons
+Assumptions: Fix <strong>Afternoon Peak</strong>, non‑weekend, non‑holiday, clear weather; vary <strong>humidity</strong> and <strong>felt temperature</strong> by seasonal means.
+
+- Seasonal climate creates distinct high/low traffic periods.  
+  <strong>Summer</strong> brings excess demand risks (bike shortages, station congestion, accelerated wear).  
+  <strong>Winter</strong> introduces under‑utilization risks and resource inefficiency.
+
+# Recommendations
+
+## Time-Based Bike Rebalancing & Station Placement Optimization
+
+Assumptions: Normal (non-holiday) day unless noted; humidity/temperature at seasonal means. Aim to keep 20–30% free dock capacity at high-demand stations and >90% bike availability at AM commuter origins.
+
+Weekday operations
+**1) Morning Peak (6:00–9:00)**
+- Pre‑load bikes to residential catchments and near transit feeders to support outbound commuter flows from registered users.
+- Maintain conservative stock in office districts to avoid early depletion.
+
+**2) Midday Reinforcement (10:00–16:00)**
+- Relocate ~70% of surplus from underutilized “Type A” stations (residential, far from tourism/leisure) to “Type B” high‑demand stations (office districts, leisure areas), retaining a minimal operating buffer at Type A.
+- Rationale: casual demand is significantly higher mid‑day and near leisure destinations; this also stages inventory for the afternoon commuter peak.
+
+**3) Afternoon Return Allocation from Closing Tourist Spots (16:00–17:00)**
+- Reclaim bikes from early‑closing attractions and cultural venues and reposition to office districts ahead of the PM commute surge.
+
+**4) Evening Rebalancing (20:00–23:00)**
+- Shift inventory from peripheral, low‑activity zones to central business and entertainment districts using a ~70:30 redistribution ratio to support nightlife/leisure demand.
+
+**5) Overnight Positioning (post 23:00)**
+- Stage unused bikes back to residential areas for early‑morning commuter readiness (registered user peaks).
+
+**Weekend operations**
+
+**6) Leisure‑Oriented Allocation (All Day)**
+- Concentrate allocation within ~3–5 km of the CBD and along tourism/leisure corridors (parks, waterfronts, landmarks, event venues). Expect sustained midday–afternoon activity and lighter commute peaks.
+
+## Optimize the Rotation Maintenance Cycle
+
+Concentrate preventive maintenance in **Winter**, when total demand is <50% of peak, to minimize user impact while preparing for the **Spring–Summer** surge.
+
+**1) Phase 1 — Leisure/Tourist Stations (withdraw, service, buffer)**
+- Evidence: Casual usage drops by **>90%** in Winter (vs. Spring), while Registered declines by **~57%**.
+- Action: Withdraw the majority of bikes from tourist‑attractive stations for **preventive check‑ups** (safety, drivetrain, brakes, lighting) and deep cleaning. Maintain a **~20% buffer** to preserve basic availability for residual trips and local needs.
+
+**2) Phase 2 — Redistribute Maintained Bikes to Office and Residential Stations**
+- Goal: Ensure availability for Registered users’ commuter traffic during off‑peak season.
+- Action: Re‑deploy serviced bikes to **AM‑origin stations** (residential/transit feeders) and balance office‑district docks for PM returns. Prioritize stations by utilization KPIs (e.g., morning stock‑out risk, afternoon dock‑full risk).
+
+**3) Phase 3 — Service Remaining Office/Residential Bikes (rolling window)**
+- Action: Pull an equal number of unmaintained units from office/residential locations—especially those nearing mileage/usage thresholds—into the **next rotation**. This rolling cycle sustains service continuity while steadily raising the fleet’s quality baseline.
+
+**4) Safeguards and KPIs**
+- Preserve minimum service levels: do not reduce tourist attraction inventory below **~20%** during holidays/events.  
+- Monitor station‑level KPIs: stock‑out rate (AM peaks), dock‑full rate (PM peaks), mean time since last service.  
+
+
+**Outcome**
+This rotation compresses downtime into low‑demand months, maintains commuter reliability, and readies the system for Spring/Summer demand, improving both availability and safety.
+
+
