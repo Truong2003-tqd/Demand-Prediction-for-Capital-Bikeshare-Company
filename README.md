@@ -54,11 +54,41 @@ Highlighted R scripts and documentation:
 # Insight Deep Dive
 ## User Insight
 
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232144.png" width="60%">
+</p>
+
+*Figure. Proportion of Casual vs. Registered Users*
+
 The critical aspect of our user base is the dominance of **registered users**, who account for **81.17%** of total recorded trips. The two user types are primarily differentiated by their access method: **registered users** commit to a **long‑term plan** (annual or 30‑day memberships), whereas **casual users** pay for **short‑term day passes**.
 
 Given that Capital Bikeshare was a **newly founded** company during the study period, this dominance indicates the **convenience** and early **product–market fit** of this bike‑rental solution. It also **projects potential growth** of the registered segment in the next year. Therefore, future business development should **center around this group**—both by **attracting casual users** into membership and by **retaining and engaging** existing registered users.
 
+## Correlation Between Time, Season, Weather, and Demand
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232227.png" width="70%">
+</p>
+
+*Figure. Correlation Heatmap of Bike-Sharing Demand and Related Variables*
+
+**Temporal drivers dominate usage variability.** Hour-of-day exhibits a strong positive association with demand for both user segments (≈ **r = 0.50**), reflecting pronounced commuter peaks (morning and late afternoon for registered users) and leisure peaks (late morning to early evening for casual users).
+
+**Day-of-week effects diverge by segment.** Casual user demand rises noticeably on weekends (**r ≈ 0.17**), while registered user demand slightly declines (**r ≈ –0.07**), indicating that registered usage is more workday‑centric whereas casual usage is more recreation‑oriented.
+
+**Aggregate weather condition dampens demand under adverse states.** Progression from clear to mist, light precipitation, and heavy precipitation correlates with a **stepwise reduction in total rentals**, underscoring sensitivity to perceived ride comfort and safety.
+
+**Underlying weather factors show intuitive elasticities.** Demand increases with **warmer temperatures** and **lower humidity**, with **casual users exhibiting slightly higher positive temperature coefficients** than registered users—suggesting discretionary riders respond more strongly to favorable outdoor conditions. Conversely, elevated humidity suppresses usage marginally more among casual users, reflecting comfort thresholds.
+
+> Overall, the interaction of fine‑grained time features (hour, weekday/weekend) and granular weather variables (temperature, humidity, condition category) collectively explains a substantial share of demand variation and reinforces segmentation strategies tailored to commuter versus leisure behavior.
+
 ## Distinctive Demand Across Time of Day
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232255.png" width="60%">
+</p>
+
+*Figure. Hourly Usage of Capital Bikeshare by Times of Day*
 
 **Casual users exhibit a leisure-centric schedule.** Demand is **muted during early morning**, begins to build **late in the morning**, and **peaks around Midday and the Afternoon leisure window**, reflecting weather/comfort-sensitive trip purposes (often social or recreational).
 
@@ -70,18 +100,19 @@ Given that Capital Bikeshare was a **newly founded** company during the study pe
 
 Overall, the divergence between leisure-oriented and commute-oriented temporal patterns reinforces the need for **segment-specific time-based forecasting strategies**.
 
-## Correlation Between Time, Season, Weather, and Demand
-**Temporal drivers dominate usage variability.** Hour-of-day exhibits a strong positive association with demand for both user segments (≈ **r = 0.50**), reflecting pronounced commuter peaks (morning and late afternoon for registered users) and leisure peaks (late morning to early evening for casual users).
-
-**Day-of-week effects diverge by segment.** Casual user demand rises noticeably on weekends (**r ≈ 0.17**), while registered user demand slightly declines (**r ≈ –0.07**), indicating that registered usage is more workday‑centric whereas casual usage is more recreation‑oriented.
-
-**Aggregate weather condition dampens demand under adverse states.** Progression from clear to mist, light precipitation, and heavy precipitation correlates with a **stepwise reduction in total rentals**, underscoring sensitivity to perceived ride comfort and safety.
-
-**Underlying weather factors show intuitive elasticities.** Demand increases with **warmer temperatures** and **lower humidity**, with **casual users exhibiting slightly higher positive temperature coefficients** than registered users—suggesting discretionary riders respond more strongly to favorable outdoor conditions. Conversely, elevated humidity suppresses usage marginally more among casual users, reflecting comfort thresholds.
-
-> Overall, the interaction of fine‑grained time features (hour, weekday/weekend) and granular weather variables (temperature, humidity, condition category) collectively explains a substantial share of demand variation and reinforces segmentation strategies tailored to commuter versus leisure behavior.
-
 ## Weekend and Holiday – Secondary Demand Driver
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232332.png" width="60%">
+</p>
+
+*Figure. Casual Users' Demand at Times of Day across Day Type*
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232414.png" width="60%">
+</p>
+
+*Figure. Registered Users' Demand at Times of Day across Day Type*
 
 **Casual Users.** Demand medians on **weekends and holidays are markedly higher** than on ordinary working days, especially during the **Midday** and **Afternoon leisure window**, indicating a strong recreational and discretionary usage pattern when schedule constraints are relaxed.
 
@@ -95,6 +126,12 @@ Overall, the divergence between leisure-oriented and commute-oriented temporal p
 
 ## Seasonal Demand of Each User
 
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232845.png" width="60%">
+</p>
+
+*Figure. Proportion of Seasonal Usage*
+
 **Casual users concentrate in warmer seasons.** Usage clusters in **Spring and Summer**, together accounting for roughly **≈ 70%** of casual rides, while **Winter drops sharply to ~20.93%**. This pattern reflects the discretionary, weather‑sensitive nature of leisure and tourism trips.
 
 **Registered usage is more balanced across seasons.** The highest share occurs in **Summer (31.25%)**, followed by **Spring (26.76%)** and **Fall (26.64%)**, with **Winter** lowest—consistent with reduced ride comfort and shorter daylight.
@@ -102,6 +139,12 @@ Overall, the divergence between leisure-oriented and commute-oriented temporal p
 > Shorter **daylight hours** and **lower temperatures** in Winter suppress cycling—most visibly for leisure behaviors—driving the lowest seasonal proportions for both segments. These findings underscore the importance of including **seasonality** in demand models and calibrating **capacity by season and segment.**
 
 ## Weather Conditions, Humidity and Temperature – Demand Booster
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232901.png" width="60%">
+</p>
+
+*Figure. Demannd of Each User and Distribution of Temperature, Humidity and Windspeed in each Weather Condition*
 
 **While humidity co-moves with adverse weather, temperature is a weaker discriminator across most weather states.** Except on **heavy-rain days**, the **temperature median and IQR are closely similar** across other weather conditions, indicating that temperature alone is **less informative than humidity** for explaining short‑run demand variation.
 
@@ -177,12 +220,32 @@ For detailed interpretation and diagnostic plots, refer to the accompanying Word
 # Scenario Development
 
 ## Operational Challenges on Weekday vs. Weekend Demand
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232920.png" width="60%">
+</p>
+
+*Figure. Scenarios of Demand at Different Times of Day on Working Days*
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232933.png" width="60%">
+</p>
+
+*Figure. Scenarios of Demand at Different Times of Day on Weekends*
+
 Assumptions: Fix season to <strong>Summer</strong>, non‑holiday; <strong>humidity</strong> and <strong>felt temperature</strong> at their Summer means.
 
 - Weekend midday and afternoon peaks generate the highest usage. Midday is the busiest period, averaging about <strong>51 casual</strong> and <strong>237 registered</strong> trips—roughly <strong>2×</strong> weekday levels (Scenario 5).  
   Although routine commuting declines for registered users on weekends, they still ride for non‑work purposes (shopping, leisure), shifting activity toward midday.
 
 ## Operational Challenges Across Seasons
+
+<p align="center">
+  <img src="https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/101b58ce1dcd1560ec00906517b593bd63ffdbc5/image/Screenshot%202025-11-12%20232944.png" width="60%">
+</p>
+
+*Figure. Scenarios of Demand in Differnt Seasons*
+
 Assumptions: Fix <strong>Afternoon Peak</strong>, non‑weekend, non‑holiday, clear weather; vary <strong>humidity</strong> and <strong>felt temperature</strong> by seasonal means.
 
 - Seasonal climate creates distinct high/low traffic periods.  
