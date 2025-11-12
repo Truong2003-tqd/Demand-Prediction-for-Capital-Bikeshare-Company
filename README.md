@@ -56,7 +56,6 @@ Highlighted R scripts and documentation:
 # Insight Deep Dive
 ## User Insight
 
-- Key insight: **Registered users account for 81.17%** of all recorded trips, indicating a strong reliance on the **registered user** base.
-- Access model differences: **Registered users** subscribe to long‑term plans (annual or 30‑day memberships), while **casual users** purchase short‑term day passes.
-- Interpretation for a newly founded service: The dominance of registered users signals the **convenience and product–market fit** of Capital Bikeshare’s offering and **projects further growth of the registered segment** in the following year.
-- Strategic recommendations: **Center growth plans around the registered cohort** by (1) **retaining** existing members, and (2) **converting casual users** through targeted promotions, pricing, and lifecycle communications; while continuing to **attract casual users** as a feeder funnel to membership.
+The critical aspect of our user base is the dominance of **registered users**, who account for **81.17%** of total recorded trips. The two user types are primarily differentiated by their access method: **registered users** commit to a **long‑term plan** (annual or 30‑day memberships), whereas **casual users** pay for **short‑term day passes**.
+
+Given that Capital Bikeshare was a **newly founded** company during the study period, this dominance indicates the **convenience** and early **product–market fit** of this bike‑rental solution. It also **projects potential growth** of the registered segment in the next year. Therefore, future business development should **center around this group**—both by **attracting casual users** into membership and by **retaining and engaging** existing registered users.
