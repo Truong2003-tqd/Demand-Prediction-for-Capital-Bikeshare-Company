@@ -102,15 +102,8 @@ Overall, the divergence between leisure-oriented and commute-oriented temporal p
 
 ## Seasonal Demand of Each User
 
-**Casual users concentrate in warmer seasons.** Usage clusters in **Spring and Summer**, together accounting for roughly **≈ 70%** of casual rides, while **Winter drops sharply to ~20.93%**. This reflects the discretionary, weather‑sensitive nature of leisure and tourism trips.
+**Casual users concentrate in warmer seasons.** Usage clusters in **Spring and Summer**, together accounting for roughly **≈ 70%** of casual rides, while **Winter drops sharply to ~20.93%**. This pattern reflects the discretionary, weather‑sensitive nature of leisure and tourism trips.
 
-**Registered usage is more balanced across seasons.** The highest share occurs in **Summer (31.25%)**, followed by **Spring (26.76%)** and **Fall (26.64%)**. **Winter (≈15.35%)** is lowest—consistent with reduced ride comfort and shorter daylight.
+**Registered usage is more balanced across seasons.** The highest share occurs in **Summer (31.25%)**, followed by **Spring (26.76%)** and **Fall (26.64%)**, with **Winter** lowest—consistent with reduced ride comfort and shorter daylight.
 
-**Seasonal mechanism and implications.** Shorter **daylight hours**, **lower ambient temperatures**, and **higher perceived chill/comfort frictions** in Winter suppress cycling—most visibly for leisure behavior—driving the steep proportional decline for casual users and a moderate decline for registered users. 
-
-**Modeling & operations guidance.** These findings underscore the importance of incorporating **seasonality** and **interaction features** (`season × hour`, `season × temperature`, `season × user_type`) in predictive models and calibrating:
-- **Fleet & dock capacity**: anticipate peak saturation shifts in Summer leisure windows and commuter resilience across shoulder seasons.
-- **Pricing & promotions**: leverage Spring onboarding campaigns to convert casual riders before peak Summer; offset Winter attrition via retention incentives for registered users.
-- **Maintenance scheduling**: allocate heavier preventive maintenance during Winter off-peak when utilization dips.
-
-> Season is not only an additive factor: interaction terms materially improve segmentation fidelity and forecasting accuracy for both casual and registered demand patterns.
+> Shorter **daylight hours** and **lower temperatures** in Winter suppress cycling—most visibly for leisure behaviors—driving the lowest seasonal proportions for both segments. These findings underscore the importance of including **seasonality** in demand models and calibrating **capacity by season and segment.**
