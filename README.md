@@ -8,6 +8,7 @@ The report is an assignment of my course in RMIT, articulated by 3 collaborators
 ## Version History
 - **Version 12 — 2025-11-12:** Added and refined the section "Distinctive Demand Across Time of Day" contrasting leisure-centric casual usage with commuter-pattern registered usage, with highlighted modeling implications.
 - **Version 13 — 2025-11-12:** Added and refined the section "Weekend and Holiday – Secondary Demand Driver" describing higher casual medians and flattened registered commute peaks with a midday lift, including peak-timing effects and modeling notes.
+- **Version 14 — 2025-11-12:** Added and refined "Seasonal Demand of Each User" detailing seasonal distribution differences, winter suppression mechanisms, and modeling/operational implications.
 
 #
 # Variable Table
@@ -64,6 +65,18 @@ The critical aspect of our user base is the dominance of **registered users**, w
 
 Given that Capital Bikeshare was a **newly founded** company during the study period, this dominance indicates the **convenience** and early **product–market fit** of this bike‑rental solution. It also **projects potential growth** of the registered segment in the next year. Therefore, future business development should **center around this group**—both by **attracting casual users** into membership and by **retaining and engaging** existing registered users.
 
+## Distinctive Demand Across Time of Day
+
+**Casual users exhibit a leisure-centric schedule.** Demand is **muted during early morning**, begins to build **late in the morning**, and **peaks around Midday and the Afternoon leisure window**, reflecting weather/comfort-sensitive trip purposes (often social or recreational).
+
+**Registered users follow a structured commuter rhythm.** Demand forms a **pronounced bimodal pattern** with a **Morning Peak (commuter hours)** and an **Afternoon / Early Evening Peak**, aligning with work start and end times and indicating habitual, purpose-driven usage.
+
+**Interpretation.** These **distinct temporal signatures** underscore the importance of **hour-of-day features** (and potential **weekday × hour interactions**) in predictive modeling:
+- Casual demand volatility concentrates in the midday–afternoon band, suggesting opportunity windows for promotional upsell to membership.
+- Registered demand stability at commute peaks supports operational planning for **bike availability and redistribution** during those critical windows.
+
+Overall, the divergence between leisure-oriented and commute-oriented temporal patterns reinforces the need for **segment-specific time-based forecasting strategies**.
+
 ## Correlation Between Time, Season, Weather, and Demand
 **Temporal drivers dominate usage variability.** Hour-of-day exhibits a strong positive association with demand for both user segments (≈ **r = 0.50**), reflecting pronounced commuter peaks (morning and late afternoon for registered users) and leisure peaks (late morning to early evening for casual users).
 
@@ -75,16 +88,6 @@ Given that Capital Bikeshare was a **newly founded** company during the study pe
 
 > Overall, the interaction of fine‑grained time features (hour, weekday/weekend) and granular weather variables (temperature, humidity, condition category) collectively explains a substantial share of demand variation and reinforces segmentation strategies tailored to commuter versus leisure behavior.
 
-## Distinctive Demand Across Time of Day
-
-**Casual users exhibit a leisure-centric schedule.** Demand is **muted during early morning**, begins to build **late in the morning**, and **peaks around Midday and the Afternoon leisure window**, reflecting weather/comfort-sensitive trip purposes (often social or recreational).
-
-**Registered users follow a structured commuter rhythm.** Demand forms a **pronounced bimodal pattern** with a **Morning Peak (commuter hours)** and an **Afternoon / Early Evening Peak**, aligning with work start and end times and indicating habitual, purpose-driven usage.
-
-> Overall, the divergence between leisure-oriented and commute-oriented temporal patterns reinforces the need for **segment-specific time-based forecasting strategies**.
-> - Casual demand volatility concentrates in the midday–afternoon band, suggesting opportunity windows for promotional upsell to membership.
-> - Registered demand stability at commute peaks supports operational planning for **bike availability and redistribution** during those critical windows.
-
 ## Weekend and Holiday – Secondary Demand Driver
 
 **Casual Users.** Demand medians on **weekends and holidays are markedly higher** than on ordinary working days, especially during the **Midday** and **Afternoon leisure window**, indicating a strong recreational and discretionary usage pattern when schedule constraints are relaxed.
@@ -95,4 +98,19 @@ Given that Capital Bikeshare was a **newly founded** company during the study pe
 - Casual demand shifts upward into the Midday–Afternoon band.
 - Registered demand flattens at traditional commute peaks and partially reallocates toward Midday.
 
-> These dynamics highlight the importance of incorporating **weekend / holiday interaction terms with hour-of-day** (e.g., `is_weekend * hour`, `is_holiday * hour`) in predictive modeling and segmentation strategy to capture changes in temporal usage patterns.
+> These dynamics highlight the importance of incorporating **weekend / holiday interaction terms with hour-of-day** (e.g., `is_weekend * hour`, `is_holiday * hour`) in predictive modeling and segmentation strategy to capture structural changes in temporal usage patterns.
+
+## Seasonal Demand of Each User
+
+**Casual users concentrate in warmer seasons.** Usage clusters in **Spring and Summer**, together accounting for roughly **≈ 70%** of casual rides, while **Winter drops sharply to ~20.93%**. This reflects the discretionary, weather‑sensitive nature of leisure and tourism trips.
+
+**Registered usage is more balanced across seasons.** The highest share occurs in **Summer (31.25%)**, followed by **Spring (26.76%)** and **Fall (26.64%)**. **Winter (≈15.35%)** is lowest—consistent with reduced ride comfort and shorter daylight.
+
+**Seasonal mechanism and implications.** Shorter **daylight hours**, **lower ambient temperatures**, and **higher perceived chill/comfort frictions** in Winter suppress cycling—most visibly for leisure behavior—driving the steep proportional decline for casual users and a moderate decline for registered users. 
+
+**Modeling & operations guidance.** These findings underscore the importance of incorporating **seasonality** and **interaction features** (`season × hour`, `season × temperature`, `season × user_type`) in predictive models and calibrating:
+- **Fleet & dock capacity**: anticipate peak saturation shifts in Summer leisure windows and commuter resilience across shoulder seasons.
+- **Pricing & promotions**: leverage Spring onboarding campaigns to convert casual riders before peak Summer; offset Winter attrition via retention incentives for registered users.
+- **Maintenance scheduling**: allocate heavier preventive maintenance during Winter off-peak when utilization dips.
+
+> Season is not only an additive factor: interaction terms materially improve segmentation fidelity and forecasting accuracy for both casual and registered demand patterns.
