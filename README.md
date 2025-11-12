@@ -59,3 +59,14 @@ Highlighted R scripts and documentation:
 The critical aspect of our user base is the dominance of **registered users**, who account for **81.17%** of total recorded trips. The two user types are primarily differentiated by their access method: **registered users** commit to a **long‑term plan** (annual or 30‑day memberships), whereas **casual users** pay for **short‑term day passes**.
 
 Given that Capital Bikeshare was a **newly founded** company during the study period, this dominance indicates the **convenience** and early **product–market fit** of this bike‑rental solution. It also **projects potential growth** of the registered segment in the next year. Therefore, future business development should **center around this group**—both by **attracting casual users** into membership and by **retaining and engaging** existing registered users.
+
+## Correlation Between Time, Season, Weather, and Demand
+**Temporal drivers dominate usage variability.** Hour-of-day exhibits a strong positive association with demand for both user segments (≈ **r = 0.50**), reflecting pronounced commuter peaks (morning and late afternoon for registered users) and leisure peaks (late morning to early evening for casual users).
+
+**Day-of-week effects diverge by segment.** Casual user demand rises noticeably on weekends (**r ≈ 0.17**), while registered user demand slightly declines (**r ≈ –0.07**), indicating that registered usage is more workday‑centric whereas casual usage is more recreation‑oriented.
+
+**Aggregate weather condition dampens demand under adverse states.** Progression from clear to mist, light precipitation, and heavy precipitation correlates with a **stepwise reduction in total rentals**, underscoring sensitivity to perceived ride comfort and safety.
+
+**Underlying weather factors show intuitive elasticities.** Demand increases with **warmer temperatures** and **lower humidity**, with **casual users exhibiting slightly higher positive temperature coefficients** than registered users—suggesting discretionary riders respond more strongly to favorable outdoor conditions. Conversely, elevated humidity suppresses usage marginally more among casual users, reflecting comfort thresholds.
+
+> Overall, the interaction of fine‑grained time features (hour, weekday/weekend) and granular weather variables (temperature, humidity, condition category) collectively explains a substantial share of demand variation and reinforces segmentation strategies tailored to commuter versus leisure behavior.
