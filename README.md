@@ -5,6 +5,10 @@ The report is an assignment of my course in RMIT, articulated by 3 collaborators
 
 2. **Minh and Chau:** They are responsible for articulating business background, scenarios and recommendations for the current problems.
 
+## Version History
+- **Version 12 — 2025-11-12:** Added and refined the section "Distinctive Demand Across Time of Day" contrasting leisure-centric casual usage with commuter-pattern registered usage, with highlighted modeling implications.
+- **Version 13 — 2025-11-12:** Added and refined the section "Weekend and Holiday – Secondary Demand Driver" describing higher casual medians and flattened registered commute peaks with a midday lift, including peak-timing effects and modeling notes.
+
 #
 # Variable Table
 ## Variable Description Table
@@ -60,6 +64,18 @@ The critical aspect of our user base is the dominance of **registered users**, w
 
 Given that Capital Bikeshare was a **newly founded** company during the study period, this dominance indicates the **convenience** and early **product–market fit** of this bike‑rental solution. It also **projects potential growth** of the registered segment in the next year. Therefore, future business development should **center around this group**—both by **attracting casual users** into membership and by **retaining and engaging** existing registered users.
 
+## Distinctive Demand Across Time of Day
+
+**Casual users exhibit a leisure-centric schedule.** Demand is **muted during early morning**, begins to build **late in the morning**, and **peaks around Midday and the Afternoon leisure window**, reflecting weather/comfort-sensitive trip purposes (often social or recreational).
+
+**Registered users follow a structured commuter rhythm.** Demand forms a **pronounced bimodal pattern** with a **Morning Peak (commuter hours)** and an **Afternoon / Early Evening Peak**, aligning with work start and end times and indicating habitual, purpose-driven usage.
+
+**Interpretation.** These **distinct temporal signatures** underscore the importance of **hour-of-day features** (and potential **weekday × hour interactions**) in predictive modeling:
+- Casual demand volatility concentrates in the midday–afternoon band, suggesting opportunity windows for promotional upsell to membership.
+- Registered demand stability at commute peaks supports operational planning for **bike availability and redistribution** during those critical windows.
+
+Overall, the divergence between leisure-oriented and commute-oriented temporal patterns reinforces the need for **segment-specific time-based forecasting strategies**.
+
 ## Correlation Between Time, Season, Weather, and Demand
 **Temporal drivers dominate usage variability.** Hour-of-day exhibits a strong positive association with demand for both user segments (≈ **r = 0.50**), reflecting pronounced commuter peaks (morning and late afternoon for registered users) and leisure peaks (late morning to early evening for casual users).
 
@@ -70,3 +86,15 @@ Given that Capital Bikeshare was a **newly founded** company during the study pe
 **Underlying weather factors show intuitive elasticities.** Demand increases with **warmer temperatures** and **lower humidity**, with **casual users exhibiting slightly higher positive temperature coefficients** than registered users—suggesting discretionary riders respond more strongly to favorable outdoor conditions. Conversely, elevated humidity suppresses usage marginally more among casual users, reflecting comfort thresholds.
 
 > Overall, the interaction of fine‑grained time features (hour, weekday/weekend) and granular weather variables (temperature, humidity, condition category) collectively explains a substantial share of demand variation and reinforces segmentation strategies tailored to commuter versus leisure behavior.
+
+## Weekend and Holiday – Secondary Demand Driver
+
+**Casual Users.** Demand medians on **weekends and holidays are markedly higher** than on ordinary working days, especially during the **Midday** and **Afternoon leisure window**, indicating a strong recreational and discretionary usage pattern when schedule constraints are relaxed.
+
+**Registered Users.** In contrast, the characteristic **commuter peaks (Morning / Late Afternoon)** **depress on weekends and holidays**, while **Midday usage shows a relative lift**. This redistribution reflects a shift from routine work trips toward occasional midday errands or leisure rides. The holiday pattern mirrors the weekend structure, reinforcing the effect of non-working status on temporal demand reshaping.
+
+**Peak Timing Shift.** Weekend and holiday status influence not only the **absolute level of demand** but also the **timing of peak hours** for each segment:
+- Casual demand shifts upward into the Midday–Afternoon band.
+- Registered demand flattens at traditional commute peaks and partially reallocates toward Midday.
+
+> These dynamics highlight the importance of incorporating **weekend / holiday interaction terms with hour-of-day** (e.g., `is_weekend * hour`, `is_holiday * hour`) in predictive modeling and segmentation strategy to capture structural changes in temporal usage patterns.
