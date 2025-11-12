@@ -1,7 +1,7 @@
 # Declaration of Authorship
-The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker. Please click this link to download the full report [Full Report](https://github.com/Truong2003-tqd/Demand-Prediction-for-Capital-Bikeshare-Company/blob/7e16d3db9a47d66ed521d650da39b345a37c7379/Predictive%20Report%20for%20Capital%20Bikeshare%20Data.docx)
+The report is an assignment of my course in RMIT, articulated by 3 collaborators. This report got the mark 75.5/100 from the marker. Please click this link to download the full report [Full Report][...]
 
-1. **Xuan Truong (Project Leader):** In this project, I was reponsible for writing codes from **processing, wrangling and visualizing data, building predictive model, researching and ideating business scenarios**. In terms of report writing, I wrote the rationales for **data processing, visualizations, variables selection for predictive model, model explanations and outlines for scenarios and recommendations**.
+1. **Xuan Truong (Project Leader):** In this project, I was reponsible for writing codes from **processing, wrangling and visualizing data, building predictive model, researching and ideating business solutions**.
 
 2. **Minh and Chau:** They are responsible for articulating business background, scenarios and recommendations for the current problems.
 
@@ -29,4 +29,5 @@ The report is an assignment of my course in RMIT, articulated by 3 collaborators
 | `registered` | Other | Integer | Count of registered users | – | No |
 | `cnt` | Target | Integer | Count of total rental bikes including both casual and registered | – | No |
 
-
+## Business Background
+Established in 2010, **Capital Bikeshare** provides extensive service in **Washington, D.C.**, accommodating both **registered commuters** and **casual users**. Driven by **rising sustainability initiatives**, urban policies that encourage **low-carbon transportation**, and changes in mobility patterns, these factors have led to a **heightened demand** for bike-share services — offering an opportunity for providers such as Capital Bikeshare to **expand in Washington, D.C.** However, these systems face operational challenges, including **uneven bike distribution during peak usage periods**, **seasonal demand fluctuations**, and **disruption from different weather conditions**.
